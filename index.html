@@ -1720,9 +1720,11 @@
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                     body: JSON.stringify(data)
                 });
+                // Apps Script occasionally answers with an HTML wrapper instead of JSON
+                // even though the inquiry saved. Only an explicit {ok:false} is a failure.
                 var result = await response.json().catch(function() { return {}; });
 
-                if (response.ok && result.ok) {
+                if (response.ok && result.ok !== false) {
                     btn.textContent = 'Inquiry Sent!';
                     btn.style.background = 'linear-gradient(135deg, #16a34a, #15803d)';
                     btn.style.borderColor = '#16a34a';
