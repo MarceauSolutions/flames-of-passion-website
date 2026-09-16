@@ -517,10 +517,18 @@
             justify-content: center;
         }
 
-        .video-embed iframe {
+        .video-embed iframe,
+        .video-embed video {
             border-radius: 4px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(232, 96, 10, 0.1);
             border: 1px solid var(--border-subtle);
+        }
+
+        .video-embed video {
+            max-width: 100%;
+            height: auto;
+            aspect-ratio: 9 / 16;
+            background: #000;
         }
 
         /* ── Gallery Section ──────────────────────────────────── */
@@ -1229,15 +1237,19 @@
                     </p>
                 </div>
                 <div class="video-embed fade-in">
-                    <iframe
+                    <video
                         width="340"
                         height="605"
-                        src="https://www.youtube.com/embed/1IJEN_jUIQY"
+                        controls
+                        playsinline
+                        preload="metadata"
+                        poster="assets/video/showreel-poster.jpg"
                         title="Flames of Passion Entertainment Showreel"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                    ></iframe>
+                    >
+                        <source src="assets/video/showreel.mp4" type="video/mp4">
+                        Your browser can&rsquo;t play this video.
+                        <a href="assets/video/showreel.mp4">Download the showreel</a> instead.
+                    </video>
                 </div>
             </div>
         </div>
