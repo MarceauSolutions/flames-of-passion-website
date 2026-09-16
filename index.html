@@ -1441,6 +1441,10 @@
 
                 <!-- Booking Form -->
                 <form class="booking-form fade-in" onsubmit="handleSubmit(event)">
+                    <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden">
+                        <label for="website_url">Leave this field empty</label>
+                        <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+                    </div>
 
                     <!-- Client Information -->
                     <div class="form-section">
@@ -1675,6 +1679,8 @@
         });
 
         // ── Form Submit Handler ──────────────────────────────────
+        var FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzGoWH8L3f1zlZm836yQTzcwy0dvsC1YWYjouP81OfvfBtRX6JKxpfU1z5bW4GQJG-Ggg/exec';
+
         async function handleSubmit(e) {
             e.preventDefault();
             var form = e.target;
@@ -1698,20 +1704,25 @@
                 music_pref: formData.get('music-pref') || '',
                 sound_equip: formData.get('sound-equip') || '',
                 theme: formData.get('theme') || '',
-                music_vibe: formData.get('music-vibe') || ''
+                music_vibe: formData.get('music-vibe') || '',
+                website_url: formData.get('website_url') || '',
+                page: window.location.pathname
             };
 
             btn.textContent = 'Sending...';
             btn.disabled = true;
 
             try {
-                var response = await fetch('https://n8n.marceausolutions.com/webhook/form-submit', {
+                // Google Apps Script backend (client-sites/.../form-backend/Code.gs).
+                // text/plain avoids a CORS preflight, which Apps Script cannot answer.
+                var response = await fetch(FORM_ENDPOINT, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                     body: JSON.stringify(data)
                 });
+                var result = await response.json().catch(function() { return {}; });
 
-                if (response.ok) {
+                if (response.ok && result.ok) {
                     btn.textContent = 'Inquiry Sent!';
                     btn.style.background = 'linear-gradient(135deg, #16a34a, #15803d)';
                     btn.style.borderColor = '#16a34a';
