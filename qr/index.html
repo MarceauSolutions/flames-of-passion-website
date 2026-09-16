@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flames of Passion Entertainment</title>
+<meta name="robots" content="noindex">
+<!--
+  Business-card QR landing page.
+
+  The printed QR encodes https://flamesofpassionentertainment.com/qr instead of
+  the home page, so the destination can be changed later by editing this one
+  file — no reprinting. Keep this path alive for as long as printed cards exist.
+
+  To send card scans somewhere else (a booking page, a promo), change DEST below
+  AND the meta refresh URL.
+-->
+<meta http-equiv="refresh" content="0; url=/?src=card">
+<link rel="canonical" href="https://flamesofpassionentertainment.com/">
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0; min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1.25rem; padding: 2rem 1.25rem;
+    background: #050505; color: #f5f0e8;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    text-align: center;
+  }
+  h1 { font-family: Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 1.35rem; letter-spacing: 0.08em; text-transform: uppercase; color: #d4a24e; margin: 0; }
+  p { margin: 0; color: #9a9087; font-size: 0.95rem; }
+  a.button {
+    display: inline-block; margin-top: 0.5rem; padding: 0.85rem 1.6rem;
+    border: 1px solid #d4a24e; border-radius: 2px;
+    color: #d4a24e; text-decoration: none; font-size: 0.9rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  a.button:focus-visible { outline: 2px solid #e8c174; outline-offset: 3px; }
+</style>
+</head>
+<body>
+  <h1>Flames of Passion Entertainment</h1>
+  <p>Taking you to the site&hellip;</p>
+  <a class="button" href="/?src=card">Continue</a>
+  <script>
+    var DEST = '/?src=card';
+    window.location.replace(DEST);
+  </script>
+</body>
+</html>
