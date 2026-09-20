@@ -467,8 +467,10 @@
 
         .about-image img {
             width: 100%;
-            height: 550px;
+            height: auto;
+            aspect-ratio: 3 / 4;       /* portrait frame: keeps her face in shot */
             object-fit: cover;
+            object-position: center 15%;
             display: block;
         }
 
@@ -1055,6 +1057,15 @@
 
         .footer-copy { color: var(--text-muted); font-size: 0.75rem; letter-spacing: 0.05em; }
 
+        .footer-credit {
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            opacity: 0.75;
+        }
+        .footer-credit a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s; }
+        .footer-credit a:hover, .footer-credit a:focus-visible { color: var(--flame-gold); border-bottom-color: var(--flame-gold); }
+
         .footer-social { display: flex; gap: 0.75rem; }
 
         .footer-social a {
@@ -1131,7 +1142,7 @@
             .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 250px; }
             .gallery-item.tall { grid-row: span 1; }
             .gallery-item.wide { grid-column: span 1; }
-            .about-image img { height: 400px; }
+            .about-image img { max-height: 560px; }
             .footer-container { flex-direction: column; gap: 1.5rem; text-align: center; }
         }
 
@@ -1232,10 +1243,10 @@
         <div class="section-container">
             <div class="about-grid">
                 <div class="about-image fade-in">
-                    <img src="assets/images/portrait-fire-blue-wall.jpg" alt="Daisy de la Cruz — The Girl on Fire">
+                    <img src="assets/images/daisy-founder-portrait.jpg" alt="Daisy de la Cruz, Founder &amp; Artist of Flames of Passion Entertainment">
                 </div>
                 <div class="about-text fade-in">
-                    <p class="section-label">The Artist</p>
+                    <p class="section-label">The Founder &amp; Artist</p>
                     <h2 class="section-title">Daisy de la Cruz</h2>
                     <div class="section-divider"></div>
                     <p class="highlight">
@@ -1328,6 +1339,9 @@
                 <div class="gallery-item tall" onclick="openLightbox(this)">
                     <img src="assets/images/RenderedImage.jpg" alt="Daisy wielding fire staff in dramatic lighting" loading="eager">
                 </div>
+                <div class="gallery-item tall" onclick="openLightbox(this)">
+                    <img src="assets/images/daisy-gallery-launch.jpg" alt="Daisy de la Cruz, new professional portrait" loading="eager">
+                </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="assets/images/handstand-fire-inverted.jpg" alt="Inverted handstand with fire" loading="lazy">
                 </div>
@@ -1352,7 +1366,7 @@
                 <div class="gallery-item wide" onclick="openLightbox(this)">
                     <img src="assets/images/handstand-splits-fire.jpg" alt="Handstand splits with fire" loading="lazy">
                 </div>
-                <div class="gallery-item" onclick="openLightbox(this)">
+                <div class="gallery-item wide" onclick="openLightbox(this)">
                     <img src="assets/images/crowd-watching-event.jpg" alt="Captivated audience at fire performance" loading="lazy">
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
@@ -1666,6 +1680,7 @@
                 <span>Flames of Passion Entertainment LLC</span>
             </div>
             <p class="footer-copy">&copy; 2025 Flames of Passion Entertainment. All rights reserved.</p>
+            <p class="footer-credit">Website by <a href="https://marceausolutions.com/?ref=flames" target="_blank" rel="noopener">Marceau Solutions</a></p>
             <div class="footer-social">
                 <a href="https://www.instagram.com/flamesofpassionent" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
                 <a href="https://www.facebook.com/FlamesofPassionEnt" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
